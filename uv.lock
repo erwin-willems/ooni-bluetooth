@@ -223,7 +223,7 @@ wheels = [
 ]
 
 [[package]]
-name = "ooni-bluetooth"
+name = "ooni-connect-bluetooth"
 source = { editable = "." }
 dependencies = [
     { name = "bleak" },

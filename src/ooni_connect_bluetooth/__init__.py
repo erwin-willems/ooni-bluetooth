@@ -1,4 +1,4 @@
-"""Ooni main module"""
+"""Ooni Connect main module"""
 
 from bleak.uuids import register_uuids
 
@@ -9,12 +9,12 @@ SUPPORTED_DEVICES = {
 }
 
 register_uuids(
-    {service.uuid: f"Ooni {service.__name__}" for service in Service.registry.values()}
+    {service.uuid: f"Ooni Connect {service.__name__}" for service in Service.registry.values()}
 )
 
 register_uuids(
     {
-        char.uuid: f"Ooni {service.__name__} {char.name}"
+        char.uuid: f"Ooni Connect {service.__name__} {char.name}"
         for service in Service.registry.values()
         for char in service.characteristics()
     }

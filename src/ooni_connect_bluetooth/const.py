@@ -3,7 +3,7 @@
 from dataclasses import dataclass
 from typing import ClassVar
 
-from ooni_bluetooth.services import NotifyCharacteristic
+from ooni_connect_bluetooth.services import NotifyCharacteristic
 
 from .services import Service
 

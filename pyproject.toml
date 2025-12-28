@@ -1,13 +1,13 @@
 # ---- Project Info and Dependencies ----
 
 [project.urls]
-Repository = "https://github.com/erwin-willems/ooni-bluetooth"
-# Inspired by = "https://github.com/elupus/ooni-bluetooth"
+Repository = "https://github.com/erwin-willems/ooni-connect-bluetooth"
+# Inspired by = "https://github.com/elupus/togrill-bluetooth"
 # Homepage = "https://..."
 # Documentation = "https://..."
 
 [project]
-name = "ooni-bluetooth"
+name = "ooni-connect-bluetooth"
 description = "Module to handle communication with Ooni Connect temperature probes."
 authors = [
     { name="Erwin Willems", email="erwin.willems@gmail.com" },
@@ -59,7 +59,7 @@ dev = [
 
 [project.scripts]
 # Add script entry points here:
-ooni-bluetooth = "ooni_bluetooth.__main__:main"
+ooni-connect-bluetooth = "ooni_connect_bluetooth.__main__:main"
 
 [project.optional-dependencies]
 cli = [
@@ -84,7 +84,7 @@ pattern = "default-unprefixed"
 
 [tool.hatch.build.targets.wheel]
 # The source location for the package.
-packages = ["src/ooni_bluetooth"]
+packages = ["src/ooni_connect_bluetooth"]
 
 
 # ---- Settings ----

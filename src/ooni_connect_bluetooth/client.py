@@ -11,7 +11,7 @@ from bleak.backends.device import BLEDevice
 from bleak_retry_connector import establish_connection
 
 from .const import MainService
-from .exceptions import DecodeError, WriteFailed
+from .exceptions import DecodeError
 from .packets import Packet, PacketNotify
 from .services import NotifyCharacteristic
 
@@ -77,3 +77,17 @@ class Client:
     async def disconnect(self) -> None:
         await self.bleak_client.disconnect()
 
+    async def read(self, packet_type: type[_PacketNotifyType]) -> _PacketNotifyType:
+        result = Future[packet_type]()
+
+        def _callback(packet: Packet):
+            if isinstance(packet, packet_type):
+                if not result.cancelled() and not result.done():
+                    result.set_result(packet)
+
+        self._notify_callbacks.append(_callback)
+        try:
+            await self.request(packet_type)
+            return await result
+        finally:
+            self._notify_callbacks.remove(_callback)
