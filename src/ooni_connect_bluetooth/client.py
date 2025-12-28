@@ -63,7 +63,7 @@ class Client:
         bleak_client = await establish_connection(
             BleakClient,
             device=device,
-            name="ToGrill Connection",
+            name="Ooni Connect Connection",
             disconnected_callback=_disconnected_callback,
         )
         try:
